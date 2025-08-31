@@ -179,9 +179,8 @@ export default function Home() {
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   required
-                  className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-all duration-300 focus:scale-105 hover:shadow-lg pl-12"
+                  className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-all duration-300 focus:scale-105 hover:shadow-lg"
                 />
-                <span className="absolute left-4 top-4 text-gray-400 animate-wiggle">✏️</span>
               </div>
               <div className="relative animate-slide-in-up">
                 <input
@@ -189,9 +188,8 @@ export default function Home() {
                   placeholder="Description"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-all duration-300 focus:scale-105 hover:shadow-lg pl-12"
+                  className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-all duration-300 focus:scale-105 hover:shadow-lg"
                 />
-                <span className="absolute left-4 top-4 text-gray-400 animate-wiggle">📄</span>
               </div>
               <button
                 type="submit"
