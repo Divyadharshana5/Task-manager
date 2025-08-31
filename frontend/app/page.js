@@ -232,12 +232,12 @@ export default function Home() {
         <div className="grid gap-8">
           {tasks.map((task, index) => {
             const gradients = [
-              'from-purple-500/20 to-blue-500/20',
-              'from-blue-500/20 to-cyan-500/20', 
-              'from-pink-500/20 to-rose-500/20',
-              'from-indigo-500/20 to-purple-500/20',
-              'from-green-500/20 to-emerald-500/20',
-              'from-yellow-500/20 to-orange-500/20'
+              'from-purple-400/30 via-pink-400/30 to-red-400/30',
+              'from-blue-400/30 via-cyan-400/30 to-teal-400/30', 
+              'from-pink-400/30 via-rose-400/30 to-orange-400/30',
+              'from-indigo-400/30 via-purple-400/30 to-pink-400/30',
+              'from-green-400/30 via-emerald-400/30 to-cyan-400/30',
+              'from-yellow-400/30 via-orange-400/30 to-red-400/30'
             ];
             const gradient = gradients[index % gradients.length];
             return (
@@ -253,8 +253,8 @@ export default function Home() {
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
                     <div className="flex items-center space-x-4 mb-4 animate-slide-in-left">
-                      <div className={`w-4 h-4 rounded-full shadow-lg ${
-                        task.status === 'completed' ? 'bg-green-400' : 'bg-orange-400'
+                      <div className={`w-4 h-4 rounded-full shadow-lg animate-pulse ${
+                        task.status === 'completed' ? 'bg-gradient-to-r from-green-400 to-emerald-500' : 'bg-gradient-to-r from-orange-400 to-yellow-500'
                       }`}></div>
                       <h3 className={`text-2xl font-bold transition-all duration-300 hover:scale-105 ${
                         task.status === 'completed' 
@@ -280,22 +280,22 @@ export default function Home() {
                       onClick={() => toggleTaskStatus(task)}
                       className={`px-6 py-3 rounded-2xl text-sm font-semibold transition-all duration-300 transform hover:scale-110 shadow-lg ${
                         task.status === 'completed'
-                          ? 'bg-green-500/80 backdrop-blur-sm text-white border border-green-400/50 hover:bg-green-600/80'
-                          : 'bg-orange-500/80 backdrop-blur-sm text-white border border-orange-400/50 hover:bg-orange-600/80'
+                          ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white hover:from-green-600 hover:to-emerald-600'
+                          : 'bg-gradient-to-r from-orange-500 to-yellow-500 text-white hover:from-orange-600 hover:to-yellow-600'
                       }`}
                     >
                       {task.status === 'completed' ? 'Completed' : 'Pending'}
                     </button>
                     <button
                       onClick={() => startEdit(task)}
-                      className="px-5 py-3 bg-blue-500/80 backdrop-blur-sm text-white rounded-2xl border border-blue-400/50 hover:bg-blue-600/80 transition-all duration-300 transform hover:scale-105 shadow-lg font-medium"
+                      className="px-5 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-2xl hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 transform hover:scale-105 shadow-lg font-medium"
                       title="Edit task"
                     >
                       Edit
                     </button>
                     <button
                       onClick={() => deleteTask(task._id)}
-                      className="px-5 py-3 bg-red-500/80 backdrop-blur-sm text-white rounded-2xl border border-red-400/50 hover:bg-red-600/80 transition-all duration-300 transform hover:scale-105 shadow-lg font-medium"
+                      className="px-5 py-3 bg-gradient-to-r from-red-500 to-pink-500 text-white rounded-2xl hover:from-red-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 shadow-lg font-medium"
                       title="Delete task"
                     >
                       Delete
@@ -309,7 +309,7 @@ export default function Home() {
 
         {tasks.length === 0 && (
           <div className="text-center py-20 animate-fade-in-up">
-            <div className="w-32 h-32 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-sm rounded-3xl mx-auto mb-8 flex items-center justify-center border border-white/30 shadow-2xl animate-bounce-slow">
+            <div className="w-32 h-32 bg-gradient-to-br from-yellow-400 via-pink-500 to-purple-600 rounded-3xl mx-auto mb-8 flex items-center justify-center shadow-2xl animate-bounce-slow">
               <svg className="w-16 h-16 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
               </svg>
