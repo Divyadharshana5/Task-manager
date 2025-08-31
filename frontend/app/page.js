@@ -304,10 +304,14 @@ export default function Home() {
         </div>
 
         {tasks.length === 0 && (
-          <div className="text-center py-16 animate-fade-in-up">
-            <div className="w-24 h-24 bg-gradient-to-r from-purple-100 to-blue-100 rounded-full mx-auto mb-6 animate-bounce-slow hover:animate-spin"></div>
-            <h3 className="text-2xl font-bold text-gray-600 mb-2 animate-fade-in-delay">No tasks yet!</h3>
-            <p className="text-gray-500 animate-fade-in-delay-2">Create your first task above to get started on your productivity journey.</p>
+          <div className="text-center py-20 animate-fade-in-up">
+            <div className="w-32 h-32 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-sm rounded-3xl mx-auto mb-8 flex items-center justify-center border border-white/30 shadow-2xl animate-bounce-slow">
+              <svg className="w-16 h-16 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+              </svg>
+            </div>
+            <h3 className="text-3xl font-bold text-white mb-4 animate-fade-in-delay">No tasks yet!</h3>
+            <p className="text-white/70 text-lg animate-fade-in-delay-2">Create your first task above to get started on your productivity journey.</p>
           </div>
         )}
       </div>
