@@ -99,46 +99,46 @@ export default function Home() {
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-800 flex items-center justify-center p-4">
-        <div className="bg-white/95 backdrop-blur-sm p-8 rounded-2xl shadow-2xl w-full max-w-md border border-white/20">
+      <div className="min-h-screen bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-800 flex items-center justify-center p-4 animate-gradient-x">
+        <div className="bg-white/95 backdrop-blur-sm p-8 rounded-2xl shadow-2xl w-full max-w-md border border-white/20 animate-fade-in-up">
           <div className="text-center mb-8">
-            <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-              <span className="text-2xl">📝</span>
+            <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center animate-bounce-slow">
+              <span className="text-2xl animate-pulse">📝</span>
             </div>
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Task Manager</h1>
-            <p className="text-gray-600 mt-2">Organize your life, one task at a time</p>
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent animate-fade-in">Task Manager</h1>
+            <p className="text-gray-600 mt-2 animate-fade-in-delay">Organize your life, one task at a time</p>
           </div>
           <div className="space-y-4">
-            <div className="relative">
+            <div className="relative animate-slide-in-left">
               <input
                 type="email"
                 placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-colors pl-12"
+                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-all duration-300 focus:scale-105 pl-12 hover:shadow-lg"
               />
-              <span className="absolute left-4 top-4 text-gray-400">📧</span>
+              <span className="absolute left-4 top-4 text-gray-400 animate-wiggle">📧</span>
             </div>
-            <div className="relative">
+            <div className="relative animate-slide-in-right">
               <input
                 type="password"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-colors pl-12"
+                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-all duration-300 focus:scale-105 pl-12 hover:shadow-lg"
               />
-              <span className="absolute left-4 top-4 text-gray-400">🔒</span>
+              <span className="absolute left-4 top-4 text-gray-400 animate-wiggle">🔒</span>
             </div>
-            <div className="flex space-x-3">
+            <div className="flex space-x-3 animate-fade-in-up-delay">
               <button
                 onClick={() => handleAuth(true)}
-                className="flex-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white p-4 rounded-xl hover:from-blue-600 hover:to-blue-700 transition-all transform hover:scale-105 font-semibold shadow-lg"
+                className="flex-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white p-4 rounded-xl hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-110 hover:rotate-1 font-semibold shadow-lg hover:shadow-2xl animate-pulse-slow"
               >
                 Login
               </button>
               <button
                 onClick={() => handleAuth(false)}
-                className="flex-1 bg-gradient-to-r from-purple-500 to-purple-600 text-white p-4 rounded-xl hover:from-purple-600 hover:to-purple-700 transition-all transform hover:scale-105 font-semibold shadow-lg"
+                className="flex-1 bg-gradient-to-r from-purple-500 to-purple-600 text-white p-4 rounded-xl hover:from-purple-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-110 hover:-rotate-1 font-semibold shadow-lg hover:shadow-2xl animate-pulse-slow"
               >
                 Sign Up
               </button>
@@ -150,17 +150,17 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 p-4">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 p-4 animate-gradient-x">
       <div className="max-w-6xl mx-auto">
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 mb-8 border border-white/50">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 mb-8 border border-white/50 animate-fade-in-up">
           <div className="flex justify-between items-center mb-8">
-            <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
-                <span className="text-xl">📝</span>
+            <div className="flex items-center space-x-4 animate-slide-in-left">
+              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center animate-spin-slow hover:animate-bounce">
+                <span className="text-xl animate-pulse">📝</span>
               </div>
               <div>
-                <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Task Manager</h1>
-                <p className="text-gray-600">Stay organized and productive</p>
+                <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent animate-text-shimmer">Task Manager</h1>
+                <p className="text-gray-600 animate-fade-in-delay">Stay organized and productive</p>
               </div>
             </div>
             <div className="flex items-center space-x-4">
