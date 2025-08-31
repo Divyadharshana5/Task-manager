@@ -163,13 +163,13 @@ export default function Home() {
                 <p className="text-gray-600 animate-fade-in-delay">Stay organized and productive</p>
               </div>
             </div>
-            <div className="flex items-center space-x-4">
-              <div className="bg-gradient-to-r from-green-100 to-blue-100 px-4 py-2 rounded-full">
-                <span className="text-gray-700 font-medium">👋 {user.email}</span>
+            <div className="flex items-center space-x-4 animate-slide-in-right">
+              <div className="bg-gradient-to-r from-green-100 to-blue-100 px-4 py-2 rounded-full animate-bounce-slow hover:animate-wiggle">
+                <span className="text-gray-700 font-medium animate-wave">👋 {user.email}</span>
               </div>
               <button
                 onClick={handleLogout}
-                className="bg-gradient-to-r from-red-500 to-pink-500 text-white px-6 py-3 rounded-xl hover:from-red-600 hover:to-pink-600 transition-all transform hover:scale-105 font-semibold shadow-lg"
+                className="bg-gradient-to-r from-red-500 to-pink-500 text-white px-6 py-3 rounded-xl hover:from-red-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-110 hover:rotate-3 font-semibold shadow-lg hover:shadow-2xl animate-pulse-slow"
               >
                 Logout
               </button>
