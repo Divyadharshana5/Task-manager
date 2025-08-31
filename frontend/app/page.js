@@ -153,24 +153,28 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 p-4 animate-gradient-x">
-      <div className="max-w-6xl mx-auto">
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 mb-8 border border-white/50 animate-fade-in-up">
-          <div className="flex justify-between items-center mb-8">
-            <div className="flex items-center space-x-4 animate-slide-in-left">
-              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl animate-spin-slow hover:animate-bounce"></div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="bg-white/10 backdrop-blur-xl rounded-3xl shadow-2xl p-10 mb-10 border border-white/20 animate-fade-in-up">
+          <div className="flex justify-between items-center mb-12">
+            <div className="flex items-center space-x-6 animate-slide-in-left">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                </svg>
+              </div>
               <div>
-                <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent animate-text-shimmer">Task Manager</h1>
-                <p className="text-gray-600 animate-fade-in-delay">Stay organized and productive</p>
+                <h1 className="text-5xl font-bold text-white mb-2">Task Manager</h1>
+                <p className="text-white/70 text-lg">Stay organized and productive</p>
               </div>
             </div>
-            <div className="flex items-center space-x-4 animate-slide-in-right">
-              <div className="bg-gradient-to-r from-green-100 to-blue-100 px-4 py-2 rounded-full animate-bounce-slow hover:animate-wiggle">
-                <span className="text-gray-700 font-medium">Welcome, {user.email}</span>
+            <div className="flex items-center space-x-6 animate-slide-in-right">
+              <div className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full border border-white/30">
+                <span className="text-white font-medium">Welcome, {user.email}</span>
               </div>
               <button
                 onClick={handleLogout}
-                className="bg-gradient-to-r from-red-500 to-pink-500 text-white px-6 py-3 rounded-xl hover:from-red-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-110 hover:rotate-3 font-semibold shadow-lg hover:shadow-2xl animate-pulse-slow"
+                className="bg-red-500/80 backdrop-blur-sm text-white px-8 py-3 rounded-xl hover:bg-red-600/80 transition-all duration-300 transform hover:scale-105 font-semibold shadow-lg border border-red-400/30"
               >
                 Logout
               </button>
