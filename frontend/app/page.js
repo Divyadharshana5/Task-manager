@@ -102,9 +102,7 @@ export default function Home() {
       <div className="min-h-screen bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-800 flex items-center justify-center p-4 animate-gradient-x">
         <div className="bg-white/95 backdrop-blur-sm p-8 rounded-2xl shadow-2xl w-full max-w-md border border-white/20 animate-fade-in-up">
           <div className="text-center mb-8">
-            <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center animate-bounce-slow">
-              <span className="text-2xl animate-pulse">📝</span>
-            </div>
+            <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mx-auto mb-4 animate-bounce-slow"></div>
             <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent animate-fade-in">Task Manager</h1>
             <p className="text-gray-600 mt-2 animate-fade-in-delay">Organize your life, one task at a time</p>
           </div>
