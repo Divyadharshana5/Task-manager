@@ -193,10 +193,9 @@ export default function Home() {
               </div>
               <button
                 type="submit"
-                className="bg-gradient-to-r from-purple-500 to-blue-500 text-white p-4 rounded-xl hover:from-purple-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-110 hover:rotate-1 font-semibold shadow-lg hover:shadow-2xl flex items-center justify-center space-x-2 animate-slide-in-right"
+                className="bg-gradient-to-r from-purple-500 to-blue-500 text-white p-4 rounded-xl hover:from-purple-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-110 hover:rotate-1 font-semibold shadow-lg hover:shadow-2xl animate-slide-in-right"
               >
-                <span className="animate-bounce">{editingTask ? '✏️' : '➕'}</span>
-                <span>{editingTask ? 'Update Task' : 'Add Task'}</span>
+                {editingTask ? 'Update Task' : 'Add Task'}
               </button>
             </div>
             {editingTask && (
@@ -209,7 +208,7 @@ export default function Home() {
                 }}
                 className="mt-4 text-gray-500 hover:text-gray-700 bg-gray-100 px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105 hover:bg-gray-200 animate-fade-in"
               >
-                <span className="animate-spin-slow">❌</span> Cancel Edit
+                Cancel Edit
               </button>
             )}
           </form>
