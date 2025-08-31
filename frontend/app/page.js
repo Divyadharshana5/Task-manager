@@ -154,12 +154,15 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="bg-white/10 backdrop-blur-xl rounded-3xl shadow-2xl p-10 mb-10 border border-white/20 animate-fade-in-up">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-600 via-purple-600 via-pink-600 to-orange-500 p-6 relative overflow-hidden">
+      <div className="absolute top-10 left-10 w-40 h-40 bg-yellow-400/20 rounded-full blur-2xl animate-pulse"></div>
+      <div className="absolute bottom-10 right-10 w-32 h-32 bg-cyan-400/20 rounded-full blur-xl animate-bounce-slow"></div>
+      <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-green-400/20 rounded-full blur-lg animate-pulse"></div>
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="bg-white/15 backdrop-blur-xl rounded-3xl shadow-2xl p-10 mb-10 border border-white/30 animate-fade-in-up">
           <div className="flex justify-between items-center mb-12">
             <div className="flex items-center space-x-6 animate-slide-in-left">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
+              <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 via-pink-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-2xl animate-pulse">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                 </svg>
@@ -170,7 +173,7 @@ export default function Home() {
               </div>
             </div>
             <div className="flex items-center space-x-6 animate-slide-in-right">
-              <div className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full border border-white/30">
+              <div className="bg-gradient-to-r from-green-400 to-blue-500 px-6 py-3 rounded-full shadow-lg">
                 <span className="text-white font-medium">Welcome, {user.email}</span>
               </div>
               <button
@@ -205,7 +208,7 @@ export default function Home() {
               </div>
               <button
                 type="submit"
-                className="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-5 rounded-2xl hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 font-semibold shadow-xl animate-slide-in-right"
+                className="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white p-5 rounded-2xl hover:from-pink-600 hover:via-purple-600 hover:to-indigo-600 transition-all duration-300 transform hover:scale-105 font-semibold shadow-xl animate-slide-in-right"
               >
                 {editingTask ? 'Update Task' : 'Add Task'}
               </button>
