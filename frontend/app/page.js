@@ -232,7 +232,7 @@ export default function Home() {
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
                     <div className="flex items-center space-x-3 mb-2 animate-slide-in-left">
-                      <div className={`w-3 h-3 rounded-full animate-ping ${
+                      <div className={`w-3 h-3 rounded-full ${
                         task.status === 'completed' ? 'bg-green-400' : 'bg-orange-400'
                       }`}></div>
                       <h3 className={`text-xl font-bold transition-all duration-300 hover:scale-105 ${
@@ -251,7 +251,7 @@ export default function Home() {
                       </p>
                     )}
                     <div className="flex items-center space-x-2 mt-3 ml-6 animate-slide-in-up">
-                      <span className="text-xs text-gray-400 animate-pulse">📅 {new Date(task.createdAt || Date.now()).toLocaleDateString()}</span>
+                      <span className="text-xs text-gray-400">{new Date(task.createdAt || Date.now()).toLocaleDateString()}</span>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3 animate-slide-in-right">
