@@ -181,8 +181,8 @@ export default function Home() {
             </div>
           </div>
 
-          <form onSubmit={handleTaskSubmit} className="mb-8 animate-fade-in-up-delay">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <form onSubmit={handleTaskSubmit} className="mb-12 animate-fade-in-up-delay">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="relative animate-slide-in-left">
                 <input
                   type="text"
@@ -190,7 +190,7 @@ export default function Home() {
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   required
-                  className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-all duration-300 focus:scale-105 hover:shadow-lg"
+                  className="w-full p-5 bg-white/20 backdrop-blur-sm border border-white/30 rounded-2xl focus:border-white/50 focus:bg-white/25 focus:outline-none transition-all duration-300 focus:scale-105 text-white placeholder-white/70 shadow-lg"
                 />
               </div>
               <div className="relative animate-slide-in-up">
@@ -199,12 +199,12 @@ export default function Home() {
                   placeholder="Description"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-all duration-300 focus:scale-105 hover:shadow-lg"
+                  className="w-full p-5 bg-white/20 backdrop-blur-sm border border-white/30 rounded-2xl focus:border-white/50 focus:bg-white/25 focus:outline-none transition-all duration-300 focus:scale-105 text-white placeholder-white/70 shadow-lg"
                 />
               </div>
               <button
                 type="submit"
-                className="bg-gradient-to-r from-purple-500 to-blue-500 text-white p-4 rounded-xl hover:from-purple-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-110 hover:rotate-1 font-semibold shadow-lg hover:shadow-2xl animate-slide-in-right"
+                className="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-5 rounded-2xl hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 font-semibold shadow-xl animate-slide-in-right"
               >
                 {editingTask ? 'Update Task' : 'Add Task'}
               </button>
