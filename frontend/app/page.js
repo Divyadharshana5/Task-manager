@@ -257,27 +257,27 @@ export default function Home() {
                   <div className="flex items-center space-x-3 animate-slide-in-right">
                     <button
                       onClick={() => toggleTaskStatus(task)}
-                      className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 transform hover:scale-110 hover:rotate-3 animate-bounce-slow ${
+                      className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 transform hover:scale-110 hover:rotate-3 ${
                         task.status === 'completed'
                           ? 'bg-gradient-to-r from-green-400 to-green-500 text-white shadow-lg hover:shadow-2xl'
                           : 'bg-gradient-to-r from-orange-400 to-yellow-500 text-white shadow-lg hover:shadow-2xl'
                       }`}
                     >
-                      <span className="animate-pulse">{task.status === 'completed' ? '✅' : '⏳'}</span> {task.status === 'completed' ? 'Completed' : 'Pending'}
+                      {task.status === 'completed' ? 'Completed' : 'Pending'}
                     </button>
                     <button
                       onClick={() => startEdit(task)}
-                      className="p-2 text-blue-500 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all duration-300 transform hover:scale-125 hover:rotate-12 animate-wiggle"
+                      className="px-3 py-2 text-blue-500 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all duration-300 transform hover:scale-105"
                       title="Edit task"
                     >
-                      ✏️
+                      Edit
                     </button>
                     <button
                       onClick={() => deleteTask(task._id)}
-                      className="p-2 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition-all duration-300 transform hover:scale-125 hover:rotate-12 animate-wiggle"
+                      className="px-3 py-2 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition-all duration-300 transform hover:scale-105"
                       title="Delete task"
                     >
-                      🗑️
+                      Delete
                     </button>
                   </div>
                 </div>
@@ -288,9 +288,7 @@ export default function Home() {
 
         {tasks.length === 0 && (
           <div className="text-center py-16 animate-fade-in-up">
-            <div className="w-24 h-24 bg-gradient-to-r from-purple-100 to-blue-100 rounded-full mx-auto mb-6 flex items-center justify-center animate-bounce-slow hover:animate-spin">
-              <span className="text-4xl animate-pulse">📝</span>
-            </div>
+            <div className="w-24 h-24 bg-gradient-to-r from-purple-100 to-blue-100 rounded-full mx-auto mb-6 animate-bounce-slow hover:animate-spin"></div>
             <h3 className="text-2xl font-bold text-gray-600 mb-2 animate-fade-in-delay">No tasks yet!</h3>
             <p className="text-gray-500 animate-fade-in-delay-2">Create your first task above to get started on your productivity journey.</p>
           </div>
