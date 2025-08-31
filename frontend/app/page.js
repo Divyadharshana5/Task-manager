@@ -223,61 +223,83 @@ export default function Home() {
           </form>
         </div>
 
-        <div className="grid gap-4">
-          {tasks.map((task) => (
-            <div
-              key={task._id}
-              className={`bg-white p-4 rounded-lg shadow-md ${
-                task.status === 'completed' ? 'opacity-75' : ''
-              }`}
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex-1">
-                  <h3 className={`text-lg font-semibold ${
-                    task.status === 'completed' ? 'line-through text-gray-500' : ''
-                  }`}>
-                    {task.title}
-                  </h3>
-                  {task.description && (
-                    <p className={`text-gray-600 ${
-                      task.status === 'completed' ? 'line-through' : ''
-                    }`}>
-                      {task.description}
-                    </p>
-                  )}
-                </div>
-                <div className="flex items-center space-x-2">
-                  <button
-                    onClick={() => toggleTaskStatus(task)}
-                    className={`px-3 py-1 rounded-full text-sm ${
-                      task.status === 'completed'
-                        ? 'bg-green-100 text-green-800'
-                        : 'bg-yellow-100 text-yellow-800'
-                    }`}
-                  >
-                    {task.status}
-                  </button>
-                  <button
-                    onClick={() => startEdit(task)}
-                    className="text-blue-500 hover:text-blue-700"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => deleteTask(task._id)}
-                    className="text-red-500 hover:text-red-700"
-                  >
-                    Delete
-                  </button>
+        <div className="grid gap-6">
+          {tasks.map((task, index) => {
+            const colors = ['purple', 'blue', 'pink', 'indigo', 'green', 'yellow'];
+            const color = colors[index % colors.length];
+            return (
+              <div
+                key={task._id}
+                className={`bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg border-l-4 transition-all hover:shadow-xl transform hover:-translate-y-1 ${
+                  task.status === 'completed' 
+                    ? 'border-l-green-400 bg-green-50/50' 
+                    : `border-l-${color}-400`
+                }`}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex-1">
+                    <div className="flex items-center space-x-3 mb-2">
+                      <div className={`w-3 h-3 rounded-full ${
+                        task.status === 'completed' ? 'bg-green-400' : 'bg-orange-400'
+                      }`}></div>
+                      <h3 className={`text-xl font-bold ${
+                        task.status === 'completed' 
+                          ? 'line-through text-gray-500' 
+                          : 'text-gray-800'
+                      }`}>
+                        {task.title}
+                      </h3>
+                    </div>
+                    {task.description && (
+                      <p className={`text-gray-600 ml-6 ${
+                        task.status === 'completed' ? 'line-through' : ''
+                      }`}>
+                        {task.description}
+                      </p>
+                    )}
+                    <div className="flex items-center space-x-2 mt-3 ml-6">
+                      <span className="text-xs text-gray-400">📅 {new Date(task.createdAt || Date.now()).toLocaleDateString()}</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <button
+                      onClick={() => toggleTaskStatus(task)}
+                      className={`px-4 py-2 rounded-full text-sm font-semibold transition-all transform hover:scale-105 ${
+                        task.status === 'completed'
+                          ? 'bg-gradient-to-r from-green-400 to-green-500 text-white shadow-lg'
+                          : 'bg-gradient-to-r from-orange-400 to-yellow-500 text-white shadow-lg'
+                      }`}
+                    >
+                      {task.status === 'completed' ? '✅ Completed' : '⏳ Pending'}
+                    </button>
+                    <button
+                      onClick={() => startEdit(task)}
+                      className="p-2 text-blue-500 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-colors"
+                      title="Edit task"
+                    >
+                      ✏️
+                    </button>
+                    <button
+                      onClick={() => deleteTask(task._id)}
+                      className="p-2 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition-colors"
+                      title="Delete task"
+                    >
+                      🗑️
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {tasks.length === 0 && (
-          <div className="text-center text-gray-500 mt-8">
-            No tasks yet. Add your first task above!
+          <div className="text-center py-16">
+            <div className="w-24 h-24 bg-gradient-to-r from-purple-100 to-blue-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+              <span className="text-4xl">📝</span>
+            </div>
+            <h3 className="text-2xl font-bold text-gray-600 mb-2">No tasks yet!</h3>
+            <p className="text-gray-500">Create your first task above to get started on your productivity journey.</p>
           </div>
         )}
       </div>
