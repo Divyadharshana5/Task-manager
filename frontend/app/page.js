@@ -120,7 +120,7 @@ export default function Home() {
                 placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-all duration-300 focus:scale-105 hover:shadow-lg"
+                className="w-full p-4 bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl focus:border-white/50 focus:bg-white/25 focus:outline-none transition-all duration-300 focus:scale-105 hover:shadow-lg text-white placeholder-white/70"
               />
             </div>
             <div className="relative animate-slide-in-right">
@@ -129,7 +129,7 @@ export default function Home() {
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-all duration-300 focus:scale-105 hover:shadow-lg"
+                className="w-full p-4 bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl focus:border-white/50 focus:bg-white/25 focus:outline-none transition-all duration-300 focus:scale-105 hover:shadow-lg text-white placeholder-white/70"
               />
             </div>
             <div className="flex space-x-3 animate-fade-in-up-delay">
