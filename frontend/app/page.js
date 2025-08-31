@@ -122,9 +122,8 @@ export default function Home() {
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-all duration-300 focus:scale-105 pl-12 hover:shadow-lg"
+                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-all duration-300 focus:scale-105 hover:shadow-lg"
               />
-              <span className="absolute left-4 top-4 text-gray-400 animate-wiggle">🔒</span>
             </div>
             <div className="flex space-x-3 animate-fade-in-up-delay">
               <button
@@ -152,9 +151,7 @@ export default function Home() {
         <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 mb-8 border border-white/50 animate-fade-in-up">
           <div className="flex justify-between items-center mb-8">
             <div className="flex items-center space-x-4 animate-slide-in-left">
-              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center animate-spin-slow hover:animate-bounce">
-                <span className="text-xl animate-pulse">📝</span>
-              </div>
+              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl animate-spin-slow hover:animate-bounce"></div>
               <div>
                 <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent animate-text-shimmer">Task Manager</h1>
                 <p className="text-gray-600 animate-fade-in-delay">Stay organized and productive</p>
@@ -162,7 +159,7 @@ export default function Home() {
             </div>
             <div className="flex items-center space-x-4 animate-slide-in-right">
               <div className="bg-gradient-to-r from-green-100 to-blue-100 px-4 py-2 rounded-full animate-bounce-slow hover:animate-wiggle">
-                <span className="text-gray-700 font-medium animate-wave">👋 {user.email}</span>
+                <span className="text-gray-700 font-medium">Welcome, {user.email}</span>
               </div>
               <button
                 onClick={handleLogout}
