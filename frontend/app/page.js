@@ -176,28 +176,35 @@ export default function Home() {
             </div>
           </div>
 
-          <form onSubmit={handleTaskSubmit} className="mb-6">
+          <form onSubmit={handleTaskSubmit} className="mb-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <input
-                type="text"
-                placeholder="Task title"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                required
-                className="p-3 border rounded-lg"
-              />
-              <input
-                type="text"
-                placeholder="Description"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                className="p-3 border rounded-lg"
-              />
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Task title"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  required
+                  className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-colors pl-12"
+                />
+                <span className="absolute left-4 top-4 text-gray-400">✏️</span>
+              </div>
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Description"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-colors pl-12"
+                />
+                <span className="absolute left-4 top-4 text-gray-400">📄</span>
+              </div>
               <button
                 type="submit"
-                className="bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600"
+                className="bg-gradient-to-r from-purple-500 to-blue-500 text-white p-4 rounded-xl hover:from-purple-600 hover:to-blue-600 transition-all transform hover:scale-105 font-semibold shadow-lg flex items-center justify-center space-x-2"
               >
-                {editingTask ? 'Update Task' : 'Add Task'}
+                <span>{editingTask ? '✏️' : '➕'}</span>
+                <span>{editingTask ? 'Update Task' : 'Add Task'}</span>
               </button>
             </div>
             {editingTask && (
@@ -208,9 +215,9 @@ export default function Home() {
                   setTitle('')
                   setDescription('')
                 }}
-                className="mt-2 text-gray-500 hover:text-gray-700"
+                className="mt-4 text-gray-500 hover:text-gray-700 bg-gray-100 px-4 py-2 rounded-lg transition-colors"
               >
-                Cancel Edit
+                ❌ Cancel Edit
               </button>
             )}
           </form>
