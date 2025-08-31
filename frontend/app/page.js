@@ -227,22 +227,24 @@ export default function Home() {
           {tasks.map((task, index) => {
             const colors = ['purple', 'blue', 'pink', 'indigo', 'green', 'yellow'];
             const color = colors[index % colors.length];
+            const animationDelay = `animate-delay-${(index % 4) * 100}`;
             return (
               <div
                 key={task._id}
-                className={`bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg border-l-4 transition-all hover:shadow-xl transform hover:-translate-y-1 ${
+                className={`bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg border-l-4 transition-all duration-500 hover:shadow-xl transform hover:-translate-y-2 hover:scale-105 animate-fade-in-up ${animationDelay} ${
                   task.status === 'completed' 
-                    ? 'border-l-green-400 bg-green-50/50' 
+                    ? 'border-l-green-400 bg-green-50/50 animate-pulse-slow' 
                     : `border-l-${color}-400`
                 }`}
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
-                    <div className="flex items-center space-x-3 mb-2">
-                      <div className={`w-3 h-3 rounded-full ${
+                    <div className="flex items-center space-x-3 mb-2 animate-slide-in-left">
+                      <div className={`w-3 h-3 rounded-full animate-ping ${
                         task.status === 'completed' ? 'bg-green-400' : 'bg-orange-400'
                       }`}></div>
-                      <h3 className={`text-xl font-bold ${
+                      <h3 className={`text-xl font-bold transition-all duration-300 hover:scale-105 ${
                         task.status === 'completed' 
                           ? 'line-through text-gray-500' 
                           : 'text-gray-800'
@@ -251,37 +253,37 @@ export default function Home() {
                       </h3>
                     </div>
                     {task.description && (
-                      <p className={`text-gray-600 ml-6 ${
+                      <p className={`text-gray-600 ml-6 animate-fade-in-delay transition-all duration-300 ${
                         task.status === 'completed' ? 'line-through' : ''
                       }`}>
                         {task.description}
                       </p>
                     )}
-                    <div className="flex items-center space-x-2 mt-3 ml-6">
-                      <span className="text-xs text-gray-400">📅 {new Date(task.createdAt || Date.now()).toLocaleDateString()}</span>
+                    <div className="flex items-center space-x-2 mt-3 ml-6 animate-slide-in-up">
+                      <span className="text-xs text-gray-400 animate-pulse">📅 {new Date(task.createdAt || Date.now()).toLocaleDateString()}</span>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-3">
+                  <div className="flex items-center space-x-3 animate-slide-in-right">
                     <button
                       onClick={() => toggleTaskStatus(task)}
-                      className={`px-4 py-2 rounded-full text-sm font-semibold transition-all transform hover:scale-105 ${
+                      className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 transform hover:scale-110 hover:rotate-3 animate-bounce-slow ${
                         task.status === 'completed'
-                          ? 'bg-gradient-to-r from-green-400 to-green-500 text-white shadow-lg'
-                          : 'bg-gradient-to-r from-orange-400 to-yellow-500 text-white shadow-lg'
+                          ? 'bg-gradient-to-r from-green-400 to-green-500 text-white shadow-lg hover:shadow-2xl'
+                          : 'bg-gradient-to-r from-orange-400 to-yellow-500 text-white shadow-lg hover:shadow-2xl'
                       }`}
                     >
-                      {task.status === 'completed' ? '✅ Completed' : '⏳ Pending'}
+                      <span className="animate-pulse">{task.status === 'completed' ? '✅' : '⏳'}</span> {task.status === 'completed' ? 'Completed' : 'Pending'}
                     </button>
                     <button
                       onClick={() => startEdit(task)}
-                      className="p-2 text-blue-500 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-colors"
+                      className="p-2 text-blue-500 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all duration-300 transform hover:scale-125 hover:rotate-12 animate-wiggle"
                       title="Edit task"
                     >
                       ✏️
                     </button>
                     <button
                       onClick={() => deleteTask(task._id)}
-                      className="p-2 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition-colors"
+                      className="p-2 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition-all duration-300 transform hover:scale-125 hover:rotate-12 animate-wiggle"
                       title="Delete task"
                     >
                       🗑️
