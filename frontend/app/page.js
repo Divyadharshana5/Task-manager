@@ -225,44 +225,50 @@ export default function Home() {
           </form>
         </div>
 
-        <div className="grid gap-6">
+        <div className="grid gap-8">
           {tasks.map((task, index) => {
-            const colors = ['purple', 'blue', 'pink', 'indigo', 'green', 'yellow'];
-            const color = colors[index % colors.length];
-            const animationDelay = `animate-delay-${(index % 4) * 100}`;
+            const gradients = [
+              'from-purple-500/20 to-blue-500/20',
+              'from-blue-500/20 to-cyan-500/20', 
+              'from-pink-500/20 to-rose-500/20',
+              'from-indigo-500/20 to-purple-500/20',
+              'from-green-500/20 to-emerald-500/20',
+              'from-yellow-500/20 to-orange-500/20'
+            ];
+            const gradient = gradients[index % gradients.length];
             return (
               <div
                 key={task._id}
-                className={`bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg border-l-4 transition-all duration-500 hover:shadow-xl transform hover:-translate-y-2 hover:scale-105 animate-fade-in-up ${animationDelay} ${
+                className={`bg-gradient-to-r ${gradient} backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-white/30 transition-all duration-500 hover:shadow-3xl transform hover:-translate-y-3 hover:scale-[1.02] animate-fade-in-up ${
                   task.status === 'completed' 
-                    ? 'border-l-green-400 bg-green-50/50 animate-pulse-slow' 
-                    : `border-l-${color}-400`
+                    ? 'opacity-75 bg-gradient-to-r from-green-500/20 to-emerald-500/20' 
+                    : ''
                 }`}
-                style={{ animationDelay: `${index * 100}ms` }}
+                style={{ animationDelay: `${index * 150}ms` }}
               >
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
-                    <div className="flex items-center space-x-3 mb-2 animate-slide-in-left">
-                      <div className={`w-3 h-3 rounded-full ${
+                    <div className="flex items-center space-x-4 mb-4 animate-slide-in-left">
+                      <div className={`w-4 h-4 rounded-full shadow-lg ${
                         task.status === 'completed' ? 'bg-green-400' : 'bg-orange-400'
                       }`}></div>
-                      <h3 className={`text-xl font-bold transition-all duration-300 hover:scale-105 ${
+                      <h3 className={`text-2xl font-bold transition-all duration-300 hover:scale-105 ${
                         task.status === 'completed' 
-                          ? 'line-through text-gray-500' 
-                          : 'text-gray-800'
+                          ? 'line-through text-white/60' 
+                          : 'text-white'
                       }`}>
                         {task.title}
                       </h3>
                     </div>
                     {task.description && (
-                      <p className={`text-gray-600 ml-6 animate-fade-in-delay transition-all duration-300 ${
-                        task.status === 'completed' ? 'line-through' : ''
+                      <p className={`text-white/80 ml-8 text-lg animate-fade-in-delay transition-all duration-300 ${
+                        task.status === 'completed' ? 'line-through text-white/50' : ''
                       }`}>
                         {task.description}
                       </p>
                     )}
-                    <div className="flex items-center space-x-2 mt-3 ml-6 animate-slide-in-up">
-                      <span className="text-xs text-gray-400">{new Date(task.createdAt || Date.now()).toLocaleDateString()}</span>
+                    <div className="flex items-center space-x-2 mt-4 ml-8 animate-slide-in-up">
+                      <span className="text-sm text-white/60 bg-white/10 px-3 py-1 rounded-full">{new Date(task.createdAt || Date.now()).toLocaleDateString()}</span>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3 animate-slide-in-right">
