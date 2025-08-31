@@ -136,13 +136,13 @@ export default function Home() {
             <div className="flex space-x-3 animate-fade-in-up-delay">
               <button
                 onClick={() => handleAuth(true)}
-                className="flex-1 bg-white/20 backdrop-blur-sm border border-white/30 text-white p-4 rounded-xl hover:bg-white/30 hover:border-white/50 transition-all duration-300 transform hover:scale-110 hover:rotate-1 font-semibold shadow-lg hover:shadow-2xl"
+                className="flex-1 bg-gradient-to-r from-blue-500 to-cyan-500 text-white p-4 rounded-xl hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 transform hover:scale-110 hover:rotate-1 font-semibold shadow-lg hover:shadow-2xl"
               >
                 Login
               </button>
               <button
                 onClick={() => handleAuth(false)}
-                className="flex-1 bg-white/20 backdrop-blur-sm border border-white/30 text-white p-4 rounded-xl hover:bg-white/30 hover:border-white/50 transition-all duration-300 transform hover:scale-110 hover:-rotate-1 font-semibold shadow-lg hover:shadow-2xl"
+                className="flex-1 bg-gradient-to-r from-pink-500 to-purple-500 text-white p-4 rounded-xl hover:from-pink-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-110 hover:-rotate-1 font-semibold shadow-lg hover:shadow-2xl"
               >
                 Sign Up
               </button>
