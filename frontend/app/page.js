@@ -271,27 +271,27 @@ export default function Home() {
                       <span className="text-sm text-white/60 bg-white/10 px-3 py-1 rounded-full">{new Date(task.createdAt || Date.now()).toLocaleDateString()}</span>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-3 animate-slide-in-right">
+                  <div className="flex items-center space-x-4 animate-slide-in-right">
                     <button
                       onClick={() => toggleTaskStatus(task)}
-                      className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 transform hover:scale-110 hover:rotate-3 ${
+                      className={`px-6 py-3 rounded-2xl text-sm font-semibold transition-all duration-300 transform hover:scale-110 shadow-lg ${
                         task.status === 'completed'
-                          ? 'bg-gradient-to-r from-green-400 to-green-500 text-white shadow-lg hover:shadow-2xl'
-                          : 'bg-gradient-to-r from-orange-400 to-yellow-500 text-white shadow-lg hover:shadow-2xl'
+                          ? 'bg-green-500/80 backdrop-blur-sm text-white border border-green-400/50 hover:bg-green-600/80'
+                          : 'bg-orange-500/80 backdrop-blur-sm text-white border border-orange-400/50 hover:bg-orange-600/80'
                       }`}
                     >
                       {task.status === 'completed' ? 'Completed' : 'Pending'}
                     </button>
                     <button
                       onClick={() => startEdit(task)}
-                      className="px-3 py-2 text-blue-500 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all duration-300 transform hover:scale-105"
+                      className="px-5 py-3 bg-blue-500/80 backdrop-blur-sm text-white rounded-2xl border border-blue-400/50 hover:bg-blue-600/80 transition-all duration-300 transform hover:scale-105 shadow-lg font-medium"
                       title="Edit task"
                     >
                       Edit
                     </button>
                     <button
                       onClick={() => deleteTask(task._id)}
-                      className="px-3 py-2 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition-all duration-300 transform hover:scale-105"
+                      className="px-5 py-3 bg-red-500/80 backdrop-blur-sm text-white rounded-2xl border border-red-400/50 hover:bg-red-600/80 transition-all duration-300 transform hover:scale-105 shadow-lg font-medium"
                       title="Delete task"
                     >
                       Delete
