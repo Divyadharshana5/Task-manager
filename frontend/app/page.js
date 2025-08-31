@@ -99,11 +99,12 @@ export default function Home() {
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-800 flex items-center justify-center p-4 animate-gradient-x relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
-        <div className="absolute top-20 left-20 w-32 h-32 bg-white/5 rounded-full blur-xl"></div>
-        <div className="absolute bottom-20 right-20 w-40 h-40 bg-purple-300/10 rounded-full blur-2xl"></div>
-        <div className="bg-white/10 backdrop-blur-xl p-8 rounded-3xl shadow-2xl w-full max-w-md border border-white/30 animate-fade-in-up relative z-10">
+      <div className="min-h-screen bg-gradient-to-br from-pink-500 via-purple-600 via-blue-600 to-cyan-500 flex items-center justify-center p-4 animate-gradient-x relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-yellow-300/20 via-pink-300/20 to-transparent"></div>
+        <div className="absolute top-20 left-20 w-32 h-32 bg-yellow-400/30 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-40 h-40 bg-pink-400/30 rounded-full blur-2xl animate-pulse"></div>
+        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-cyan-400/20 rounded-full blur-lg animate-bounce-slow"></div>
+        <div className="bg-white/15 backdrop-blur-xl p-8 rounded-3xl shadow-2xl w-full max-w-md border border-white/40 animate-fade-in-up relative z-10">
           <div className="text-center mb-8">
             <div className="w-20 h-20 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-sm rounded-2xl mx-auto mb-6 flex items-center justify-center animate-bounce-slow border border-white/20">
               <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
