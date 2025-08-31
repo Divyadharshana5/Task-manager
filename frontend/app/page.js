@@ -176,34 +176,34 @@ export default function Home() {
             </div>
           </div>
 
-          <form onSubmit={handleTaskSubmit} className="mb-8">
+          <form onSubmit={handleTaskSubmit} className="mb-8 animate-fade-in-up-delay">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="relative">
+              <div className="relative animate-slide-in-left">
                 <input
                   type="text"
                   placeholder="Task title"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   required
-                  className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-colors pl-12"
+                  className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-all duration-300 focus:scale-105 hover:shadow-lg pl-12"
                 />
-                <span className="absolute left-4 top-4 text-gray-400">✏️</span>
+                <span className="absolute left-4 top-4 text-gray-400 animate-wiggle">✏️</span>
               </div>
-              <div className="relative">
+              <div className="relative animate-slide-in-up">
                 <input
                   type="text"
                   placeholder="Description"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-colors pl-12"
+                  className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-all duration-300 focus:scale-105 hover:shadow-lg pl-12"
                 />
-                <span className="absolute left-4 top-4 text-gray-400">📄</span>
+                <span className="absolute left-4 top-4 text-gray-400 animate-wiggle">📄</span>
               </div>
               <button
                 type="submit"
-                className="bg-gradient-to-r from-purple-500 to-blue-500 text-white p-4 rounded-xl hover:from-purple-600 hover:to-blue-600 transition-all transform hover:scale-105 font-semibold shadow-lg flex items-center justify-center space-x-2"
+                className="bg-gradient-to-r from-purple-500 to-blue-500 text-white p-4 rounded-xl hover:from-purple-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-110 hover:rotate-1 font-semibold shadow-lg hover:shadow-2xl flex items-center justify-center space-x-2 animate-slide-in-right"
               >
-                <span>{editingTask ? '✏️' : '➕'}</span>
+                <span className="animate-bounce">{editingTask ? '✏️' : '➕'}</span>
                 <span>{editingTask ? 'Update Task' : 'Add Task'}</span>
               </button>
             </div>
@@ -215,9 +215,9 @@ export default function Home() {
                   setTitle('')
                   setDescription('')
                 }}
-                className="mt-4 text-gray-500 hover:text-gray-700 bg-gray-100 px-4 py-2 rounded-lg transition-colors"
+                className="mt-4 text-gray-500 hover:text-gray-700 bg-gray-100 px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105 hover:bg-gray-200 animate-fade-in"
               >
-                ❌ Cancel Edit
+                <span className="animate-spin-slow">❌</span> Cancel Edit
               </button>
             )}
           </form>
