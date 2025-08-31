@@ -113,9 +113,8 @@ export default function Home() {
                 placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-all duration-300 focus:scale-105 pl-12 hover:shadow-lg"
+                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-all duration-300 focus:scale-105 hover:shadow-lg"
               />
-              <span className="absolute left-4 top-4 text-gray-400 animate-wiggle">📧</span>
             </div>
             <div className="relative animate-slide-in-right">
               <input
