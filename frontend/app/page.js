@@ -296,12 +296,12 @@ export default function Home() {
         </div>
 
         {tasks.length === 0 && (
-          <div className="text-center py-16">
-            <div className="w-24 h-24 bg-gradient-to-r from-purple-100 to-blue-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-              <span className="text-4xl">📝</span>
+          <div className="text-center py-16 animate-fade-in-up">
+            <div className="w-24 h-24 bg-gradient-to-r from-purple-100 to-blue-100 rounded-full mx-auto mb-6 flex items-center justify-center animate-bounce-slow hover:animate-spin">
+              <span className="text-4xl animate-pulse">📝</span>
             </div>
-            <h3 className="text-2xl font-bold text-gray-600 mb-2">No tasks yet!</h3>
-            <p className="text-gray-500">Create your first task above to get started on your productivity journey.</p>
+            <h3 className="text-2xl font-bold text-gray-600 mb-2 animate-fade-in-delay">No tasks yet!</h3>
+            <p className="text-gray-500 animate-fade-in-delay-2">Create your first task above to get started on your productivity journey.</p>
           </div>
         )}
       </div>
