@@ -21,12 +21,14 @@ A full-stack task management application with user authentication and CRUD opera
 ### Backend Setup
 
 1. Navigate to backend directory:
+
    ```bash
    cd backend
    npm install
    ```
 
 2. Update `.env` file with your MongoDB URI:
+
    ```
    MONGODB_URI=your_mongodb_connection_string
    JWT_SECRET=your_jwt_secret_key
@@ -41,12 +43,14 @@ A full-stack task management application with user authentication and CRUD opera
 ### Frontend Setup
 
 1. Navigate to frontend directory:
+
    ```bash
    cd frontend
    npm install
    ```
 
 2. Start the development server:
+
    ```bash
    npm run dev
    ```
@@ -56,16 +60,19 @@ A full-stack task management application with user authentication and CRUD opera
 ## Deployment
 
 ### Backend (Vercel)
+
 1. Push code to GitHub
 2. Connect repository to Vercel
 3. Add environment variables in Vercel dashboard
 4. Deploy
 
 ### Frontend (Vercel)
+
 1. Update API_URL in `app/page.js` to your deployed backend URL
 2. Deploy to Vercel
 
 ### Database (MongoDB Atlas)
+
 1. Create a free cluster at [MongoDB Atlas](https://www.mongodb.com/atlas)
 2. Get connection string and update `.env`
 
