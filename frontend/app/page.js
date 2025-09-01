@@ -34,13 +34,22 @@ export default function Home() {
   };
 
   const handleAuth = async (isLogin) => {
+    if (!email || !password) {
+      setError("Please fill in all fields");
+      return;
+    }
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters");
+      return;
+    }
+    
     const buttonKey = isLogin ? 'signin' : 'signup';
     setLoadingStates(prev => ({ ...prev, [buttonKey]: true }));
     setError("");
     try {
       const endpoint = isLogin ? "login" : "signup";
       const response = await axios.post(`${API_URL}/auth/${endpoint}`, {
-        email,
+        email: email.trim(),
         password,
       });
       localStorage.setItem("token", response.data.token);
@@ -167,6 +176,7 @@ export default function Home() {
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="Enter your email"
+                  disabled={loadingStates.signin || loadingStates.signup}
                   required
                 />
               </div>
@@ -180,7 +190,8 @@ export default function Home() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Enter your password"
+                  placeholder="Enter your password (min 6 characters)"
+                  disabled={loadingStates.signin || loadingStates.signup}
                   required
                 />
               </div>
