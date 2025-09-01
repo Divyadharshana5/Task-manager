@@ -20,10 +20,11 @@ export default function Home() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (token) {
+    const user = localStorage.getItem("user");
+    if (token && user) {
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+      setUser(JSON.parse(user));
       fetchTasks();
-      setUser(JSON.parse(localStorage.getItem("user")));
     }
   }, []);
 
@@ -121,12 +122,6 @@ export default function Home() {
     setLoadingStates(prev => ({ ...prev, taskSubmit: true }));
     setError("");
     try {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        setError("Please login again");
-        return;
-      }
-      
       if (editingTask) {
         await axios.put(`${API_URL}/tasks/${editingTask._id}`, {
           title: title.trim(),
@@ -143,7 +138,6 @@ export default function Home() {
       setDescription("");
       fetchTasks();
     } catch (error) {
-      console.error("Task operation error:", error.response?.data || error.message);
       setError(error.response?.data?.error || "Task operation failed");
     } finally {
       setLoadingStates(prev => ({ ...prev, taskSubmit: false }));
