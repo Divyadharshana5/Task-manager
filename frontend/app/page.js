@@ -95,6 +95,7 @@ export default function Home() {
         setUser(response.data.user);
         setEmail("");
         setPassword("");
+        setSuccessMessage("");
         fetchTasks();
       }, 1500);
     } catch (error) {
@@ -114,21 +115,37 @@ export default function Home() {
 
   const handleTaskSubmit = async (e) => {
     e.preventDefault();
+    if (!title.trim()) {
+      setError("Task title is required");
+      return;
+    }
+    
     setLoadingStates(prev => ({ ...prev, taskSubmit: true }));
+    setError("");
     try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        setError("Please login again");
+        return;
+      }
+      
       if (editingTask) {
         await axios.put(`${API_URL}/tasks/${editingTask._id}`, {
-          title,
-          description,
+          title: title.trim(),
+          description: description.trim(),
         });
         setEditingTask(null);
       } else {
-        await axios.post(`${API_URL}/tasks`, { title, description });
+        await axios.post(`${API_URL}/tasks`, { 
+          title: title.trim(), 
+          description: description.trim() 
+        });
       }
       setTitle("");
       setDescription("");
       fetchTasks();
     } catch (error) {
+      console.error("Task operation error:", error.response?.data || error.message);
       setError(error.response?.data?.error || "Task operation failed");
     } finally {
       setLoadingStates(prev => ({ ...prev, taskSubmit: false }));
