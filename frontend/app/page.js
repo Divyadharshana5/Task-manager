@@ -12,7 +12,7 @@ export default function Home() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [editingTask, setEditingTask] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [loadingStates, setLoadingStates] = useState({});
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -34,7 +34,8 @@ export default function Home() {
   };
 
   const handleAuth = async (isLogin) => {
-    setIsLoading(true);
+    const buttonKey = isLogin ? 'signin' : 'signup';
+    setLoadingStates(prev => ({ ...prev, [buttonKey]: true }));
     setError("");
     try {
       const endpoint = isLogin ? "login" : "signup";
@@ -54,7 +55,7 @@ export default function Home() {
     } catch (error) {
       setError(error.response?.data?.error || "Authentication failed");
     } finally {
-      setIsLoading(false);
+      setLoadingStates(prev => ({ ...prev, [buttonKey]: false }));
     }
   };
 
@@ -68,7 +69,7 @@ export default function Home() {
 
   const handleTaskSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
+    setLoadingStates(prev => ({ ...prev, taskSubmit: true }));
     try {
       if (editingTask) {
         await axios.put(`${API_URL}/tasks/${editingTask._id}`, {
@@ -85,26 +86,32 @@ export default function Home() {
     } catch (error) {
       setError(error.response?.data?.error || "Task operation failed");
     } finally {
-      setIsLoading(false);
+      setLoadingStates(prev => ({ ...prev, taskSubmit: false }));
     }
   };
 
   const toggleTaskStatus = async (task) => {
+    setLoadingStates(prev => ({ ...prev, [`toggle-${task._id}`]: true }));
     try {
       const newStatus = task.status === "pending" ? "completed" : "pending";
       await axios.put(`${API_URL}/tasks/${task._id}`, { status: newStatus });
       fetchTasks();
     } catch (error) {
       setError("Failed to update task status");
+    } finally {
+      setLoadingStates(prev => ({ ...prev, [`toggle-${task._id}`]: false }));
     }
   };
 
   const deleteTask = async (id) => {
+    setLoadingStates(prev => ({ ...prev, [`delete-${id}`]: true }));
     try {
       await axios.delete(`${API_URL}/tasks/${id}`);
       fetchTasks();
     } catch (error) {
       setError("Failed to delete task");
+    } finally {
+      setLoadingStates(prev => ({ ...prev, [`delete-${id}`]: false }));
     }
   };
 
@@ -181,17 +188,17 @@ export default function Home() {
               <div className="flex space-x-3 pt-4">
                 <button
                   onClick={() => handleAuth(true)}
-                  disabled={isLoading}
+                  disabled={loadingStates.signin}
                   className="flex-1 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed font-medium"
                 >
-                  {isLoading ? "Loading..." : "Sign In"}
+                  {loadingStates.signin ? "Loading..." : "Sign In"}
                 </button>
                 <button
                   onClick={() => handleAuth(false)}
-                  disabled={isLoading}
+                  disabled={loadingStates.signup}
                   className="flex-1 bg-gray-600 text-white py-2 px-4 rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed font-medium"
                 >
-                  {isLoading ? "Loading..." : "Sign Up"}
+                  {loadingStates.signup ? "Loading..." : "Sign Up"}
                 </button>
               </div>
             </div>
@@ -292,10 +299,10 @@ export default function Home() {
             <div className="flex items-center space-x-3">
               <button
                 type="submit"
-                disabled={isLoading}
+                disabled={loadingStates.taskSubmit}
                 className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed font-medium"
               >
-                {isLoading
+                {loadingStates.taskSubmit
                   ? "Saving..."
                   : editingTask
                   ? "Update Task"
@@ -408,29 +415,34 @@ export default function Home() {
                     <div className="flex items-center space-x-2 ml-4">
                       <button
                         onClick={() => toggleTaskStatus(task)}
-                        className={`px-3 py-1 rounded text-sm font-medium ${
+                        disabled={loadingStates[`toggle-${task._id}`]}
+                        className={`px-3 py-1 rounded text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed ${
                           task.status === "completed"
                             ? "bg-yellow-100 text-yellow-800 hover:bg-yellow-200"
                             : "bg-green-100 text-green-800 hover:bg-green-200"
                         }`}
                       >
-                        {task.status === "completed"
+                        {loadingStates[`toggle-${task._id}`]
+                          ? "Loading..."
+                          : task.status === "completed"
                           ? "Mark Pending"
                           : "Mark Complete"}
                       </button>
 
                       <button
                         onClick={() => startEdit(task)}
-                        className="px-3 py-1 bg-blue-100 text-blue-800 rounded text-sm font-medium hover:bg-blue-200"
+                        disabled={loadingStates[`toggle-${task._id}`] || loadingStates[`delete-${task._id}`]}
+                        className="px-3 py-1 bg-blue-100 text-blue-800 rounded text-sm font-medium hover:bg-blue-200 disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         Edit
                       </button>
 
                       <button
                         onClick={() => deleteTask(task._id)}
-                        className="px-3 py-1 bg-red-100 text-red-800 rounded text-sm font-medium hover:bg-red-200"
+                        disabled={loadingStates[`delete-${task._id}`]}
+                        className="px-3 py-1 bg-red-100 text-red-800 rounded text-sm font-medium hover:bg-red-200 disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        Delete
+                        {loadingStates[`delete-${task._id}`] ? "Loading..." : "Delete"}
                       </button>
                     </div>
                   </div>
