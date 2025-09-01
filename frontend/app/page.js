@@ -87,9 +87,7 @@ export default function Home() {
       });
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("user", JSON.stringify(response.data.user));
-      axios.defaults.headers.common[
-        "Authorization"
-      ] = `Bearer ${response.data.token}`;
+      axios.defaults.headers.common["Authorization"] = `Bearer ${response.data.token}`;
       setSuccessMessage("Login successful!");
       setTimeout(() => {
         setUser(response.data.user);
